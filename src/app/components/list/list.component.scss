@@ -1,0 +1,36 @@
+.card{
+  display: flex;
+  border: 1px solid gray;
+  padding: 8px;
+  gap: 4px;
+}
+
+.post-img{
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  gap: 4px;
+}
+
+.post-txt{
+  display: flex;
+  flex-direction: column;
+}
+
+li{
+  list-style: none;
+  margin-bottom: 4px;
+}
+
+ul{
+  padding-left: 0px;
+}
+
+.buttons-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.spacer{
+  flex-grow: 1;
+}
