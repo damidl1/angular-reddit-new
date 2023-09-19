@@ -5,7 +5,7 @@
   <div class="post-txt">
     <span>{{postData.title | uppercase}}</span>  <!-- pipe per inserire proprietà uppercase e fare titolo maiuscolo -->
     <span>{{postData.author}}</span>
-    <span>{{postData.created}}</span>
+     <span>{{postData.created | timestampToDate : true | uppercase}}</span>  <!-- abbiamo passato il parametro di hasTime usando i : -->
   </div>
   <div class="spacer">
 
