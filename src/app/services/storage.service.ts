@@ -15,12 +15,14 @@ export class StorageService {
   }
 
   savePost(post: Post){
+    post.isFavourite = true;
     this.favourites.push(post);
     localStorage.setItem('favourites', JSON.stringify(this.favourites));
     console.log(this.favourites)
   }
 
   removePost(post: Post){
+    post.isFavourite = false;
     this.favourites = this.favourites.filter(p => p.id !== post.id);
     localStorage.setItem('favourites', JSON.stringify(this.favourites));
     console.log(this.favourites)
@@ -35,6 +37,7 @@ export class StorageService {
   }
 
   isFavourite(post: Post): boolean {
+   console.log('is favourite', post)
    return this.favourites.some(p => p.id === post.id);
   }
 }

@@ -6,16 +6,19 @@ import { StorageService } from 'src/app/services/storage.service';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
 })
-export class ListComponent implements OnInit{
+export class ListComponent implements OnInit {
   posts: Post[] = [];
 
-  constructor(private reddit: RedditService, public storage: StorageService){
+  constructor(private reddit: RedditService, private storage: StorageService) {}
 
-  }
   ngOnInit(): void {
-    this.reddit.getRedditPosts().subscribe(childrenData => this.posts = childrenData);
+    this.reddit.getRedditPosts().subscribe((childrenData) => {
+      this.posts = childrenData;
+      for (const post of this.posts) {
+        post.isFavourite = this.storage.isFavourite(post);
+      }
+    });
   }
-
 }

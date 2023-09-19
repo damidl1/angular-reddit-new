@@ -1,0 +1,23 @@
+ <div *ngIf="postData" class="card" [ngStyle]="{backgroundColor: bColor}">   <!-- quando abbiamo dei dati che potrebbero non esserci si utilizza un ngIf -->
+  <span *ngIf="isFavourite">★</span>
+  <img class="post-img" src="{{postData.thumbnail.includes('http') ? postData.thumbnail : './assets/thumb.png'}}"
+    alt="post thumbnail">
+  <div class="post-txt">
+    <span>{{postData.title | uppercase}}</span>  <!-- pipe per inserire proprietà uppercase e fare titolo maiuscolo -->
+    <span>{{postData.author}}</span>
+    <span>{{postData.created}}</span>
+  </div>
+  <div class="spacer">
+
+  </div>
+  <div class="buttons-container">
+    <!-- <button (click)="storage.toggleFavourites(postData)">{{storage.isFavourite(postData) ? 'Rimuovi' : 'Salva'}}</button> -->
+    <button (click)="storage.toggleFavourites(postData)">{{postData.isFavourite ? 'Rimuovi' : 'Salva'}}</button>
+    <a href="{{postData.url}}">
+      <button>Vai al link</button>
+    </a>
+    <a href="{{'https://www.reddit.com/' + postData.permalink}}">
+      <button>Vai a Reddit</button>
+    </a>
+  </div>
+</div>
