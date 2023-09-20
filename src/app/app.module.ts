@@ -9,6 +9,7 @@ import { ListComponent } from './components/list/list.component';
 import { CardComponent } from './components/card/card.component';
 import { FavouritesComponent } from './components/favourites/favourites.component';
 import { TimestampToDatePipe } from './pipes/timestamp-to-date.pipe';
+import { UpperCasePipePipe } from './pipes/upper-case-pipe.pipe';
 
 
 
@@ -19,7 +20,8 @@ import { TimestampToDatePipe } from './pipes/timestamp-to-date.pipe';
     ListComponent,
     CardComponent,
     FavouritesComponent,
-    TimestampToDatePipe
+    TimestampToDatePipe,
+    UpperCasePipePipe
   ],
   imports: [
     BrowserModule,
